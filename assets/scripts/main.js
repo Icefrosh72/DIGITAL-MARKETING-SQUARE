@@ -82,7 +82,7 @@ let refreshInterval;
 function startSlider() {
   refreshInterval = setInterval(() => {
     next.click();
-  }, 3000);
+  }, 6000);
 }
 
 function stopSlider() {
