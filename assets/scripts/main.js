@@ -1,114 +1,113 @@
-// let items = document.querySelectorAll('.slider .item');
-// let next = document.querySelectorId('#next');
-// let prev = document.querySelectorId('prev');
-// let thumbnails = document.querySelectorAll('.thumbnail .item');
+// // let items = document.querySelectorAll('.slider .item');
+// // let next = document.querySelectorId('#next');
+// // let prev = document.querySelectorId('prev');
+// // let thumbnails = document.querySelectorAll('.thumbnail .item');
 
-// // param
+// // // param
 
-// let countItem = items.length;
-// let itemActive = 0;
+// // let countItem = items.length;
+// // let itemActive = 0;
 
-// // event next click
-// next.onclick = function () {
-//   itemActive = itemActive + 1;
-//   if (itemActive >= countItem) {
-//     itemActive = 0;
-//   }
-//   showSlider();
-// };
+// // // event next click
+// // next.onclick = function () {
+// //   itemActive = itemActive + 1;
+// //   if (itemActive >= countItem) {
+// //     itemActive = 0;
+// //   }
+// //   showSlider();
+// // };
 
-// prev.onclick = function () {
-//   itemActive = itemActive - 1;
-//   if (itemActive < 0) {
-//     itemActive = countItem - 1;
-//   }
-//   showSlider();
-// };
+// // prev.onclick = function () {
+// //   itemActive = itemActive - 1;
+// //   if (itemActive < 0) {
+// //     itemActive = countItem - 1;
+// //   }
+// //   showSlider();
+// // };
 
-// //
-// let refreshInterval = setInterval(() => {
-//   next.click();
-// }, 3000);
+// // //
+// // let refreshInterval = setInterval(() => {
+// //   next.click();
+// // }, 3000);
 
-// // 
-// clearInterval(refreshInterval);
-// refreshInterval = setInterval(() => {
-//     next.click();
-// }, 5000)
+// // // 
+// // clearInterval(refreshInterval);
+// // refreshInterval = setInterval(() => {
+// //     next.click();
+// // }, 5000)
 
-// function showSlider() {
-//   let itemActiveOld = document.querySelector('.slider .list .item.active');
-//   let thumbnailActiveOld = document.querySelectorAll('.thumbnail .item.active');
-//   itemActiveOld.classList.remove('active');
-//   thumbnailActiveOld.classList.remove('.active');
-//   //
+// // function showSlider() {
+// //   let itemActiveOld = document.querySelector('.slider .list .item.active');
+// //   let thumbnailActiveOld = document.querySelectorAll('.thumbnail .item.active');
+// //   itemActiveOld.classList.remove('active');
+// //   thumbnailActiveOld.classList.remove('.active');
+// //   //
 
-//   items[itemActive].classList.add('active');
-//   thumbnails[itemActive].classList.add('active');
-// }
+// //   items[itemActive].classList.add('active');
+// //   thumbnails[itemActive].classList.add('active');
+// // }
 
-// //
-// thumbnails.forEach((thumbnails, index) => {
-//   thumbnails.addEventListener('click', () => {
-//     itemActive = index;
-//     showSlider();
-//   });
-// });
+// // //
+// // thumbnails.forEach((thumbnails, index) => {
+// //   thumbnails.addEventListener('click', () => {
+// //     itemActive = index;
+// //     showSlider();
+// //   });
+// // });
 
 
 
-let items = document.querySelectorAll('.slider .item');
+
+let items = document.querySelectorAll('.slider .list .item');
 let next = document.getElementById('next');
 let prev = document.getElementById('prev');
 let thumbnails = document.querySelectorAll('.thumbnail .item');
 
-// parameters
+// config param
 let countItem = items.length;
 let itemActive = 0;
-
 // event next click
-next.onclick = function () {
-  itemActive = (itemActive + 1) % countItem;
-  showSlider();
-};
-
-prev.onclick = function () {
-  itemActive = (itemActive - 1 + countItem) % countItem;
-  showSlider();
-};
-
-let refreshInterval;
-
-function startSlider() {
-  refreshInterval = setInterval(() => {
-    next.click();
-  }, 6000);
-}
-
-function stopSlider() {
-  clearInterval(refreshInterval);
-}
-
-startSlider();
-
-// function to display slider
-function showSlider() {
-  let itemActiveOld = document.querySelector('.slider .item.active');
-  let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
-  
-  itemActiveOld.classList.remove('active');
-  thumbnailActiveOld.classList.remove('active');
-  
-  items[itemActive].classList.add('active');
-  thumbnails[itemActive].classList.add('active');
-}
-
-// event listener for thumbnail clicks
-thumbnails.forEach((thumbnail, index) => {
-  thumbnail.addEventListener('click', () => {
-    itemActive = index;
-    stopSlider(); // Stop auto slideshow when user interacts with thumbnails
+next.onclick = function(){
+    itemActive = itemActive + 1;
+    if(itemActive >= countItem){
+        itemActive = 0;
+    }
     showSlider();
-    startSlider(); // Start auto slideshow again after user interaction
-  });
-});
+}
+//event prev click
+prev.onclick = function(){
+    itemActive = itemActive - 1;
+    if(itemActive < 0){
+        itemActive = countItem - 1;
+    }
+    showSlider();
+}
+// auto run slider
+let refreshInterval = setInterval(() => {
+    next.click();
+}, 5000)
+function showSlider(){
+    // remove item active old
+    let itemActiveOld = document.querySelector('.slider .list .item.active');
+    let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+    itemActiveOld.classList.remove('active');
+    thumbnailActiveOld.classList.remove('active');
+
+    // active new item
+    items[itemActive].classList.add('active');
+    thumbnails[itemActive].classList.add('active');
+
+    // clear auto time run slider
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(() => {
+        next.click();
+    }, 5000)
+}
+
+// click thumbnail
+thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener('click', () => {
+        itemActive = index;
+        showSlider();
+    })
+})
