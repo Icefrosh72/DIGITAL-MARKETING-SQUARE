@@ -10,6 +10,11 @@ body {
   font-family: "poppins", sans-serif;
 }
 
+img{
+  max-width: 100%;
+  margin: auto 0;
+}
+
 .btn-pri {
   background: #ff9900;
   padding: 0.3rem;
@@ -20,6 +25,13 @@ body {
 
 .navbar {
   background: #fff;
+}
+
+.section-title {
+  max-width: 630px;
+  margin: 0 auto 45px;
+  text-align: center;
+  position: relative;
 }
 
 /* slider */
@@ -164,6 +176,93 @@ body {
   inset: auto 10px 10px 10px;
 }
 /* slider */
+
+/* About */
+.about-container{
+  position: relative;
+  overflow: hidden;
+  margin: 2rem 2rem;
+}
+/* About end */
+
+/* Mission */
+.dmsgoals {
+  overflow: hidden;
+  position: relative;
+  margin: 3rem 0;
+}
+
+
+.mission-item {
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.mission-item .mission-image {
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.mission-item .mission-image a {
+  display: block;
+}
+
+.mission-item .mission-image a img {
+  border-radius: 15px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+
+.mission-item:hover .mission-image a img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+.mission-slides.owl-theme .owl-nav {
+  margin-top: 0;
+  text-align: center;
+}
+
+.mission-slides.owl-theme .owl-nav [class*=owl-] {
+  margin: 0 10px;
+  padding: 0;
+  background: transparent;
+  color: #ff9900;
+  border: 2px solid #ff9900;
+  border-radius: 50%;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  font-size: 35px;
+}
+
+.mission-slides.owl-theme .owl-nav [class*=owl-] i {
+  position: relative;
+  left: -2px;
+  top: 2px;
+}
+
+.mission-slides.owl-theme .owl-nav [class*=owl-].owl-next i {
+  position: relative;
+  left: 2px;
+  top: 2px;
+}
+
+.mission-slides.owl-theme .owl-nav [class*=owl-]:hover {
+  color: var(--white-color);
+  background-color: var(--main-color);
+  border: 2px solid var(--main-color);
+}
+
+/* Mission ends*/
 
 @media (min-width: 1200px) {
   .navbar-expand-xl .navbar-nav {
