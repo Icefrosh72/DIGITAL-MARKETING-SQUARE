@@ -122,8 +122,8 @@ $(".mission-slides").owlCarousel({
   autoplayHoverPause: true,
   autoplay: true,
   navText: [
-    "<i class='ri-arrow-left-s-line'></i>",
-    "<i class='ri-arrow-right-s-line'></i>",
+    "<i class='fas fa-arrow-left'></i>",
+    "<i class='fas fa-arrow-right'></i>",
   ],
   responsive: {
     0: {
