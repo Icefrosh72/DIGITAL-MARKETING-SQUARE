@@ -111,7 +111,7 @@ thumbnails.forEach((thumbnail, index) => {
 
 // Mission
 
-// Projects Slides
+// Slides
 $(".mission-slides").owlCarousel({
   loop: true,
   nav: true,
@@ -125,6 +125,87 @@ $(".mission-slides").owlCarousel({
     "<i class='ri-arrow-left-s-line'></i>",
     "<i class='ri-arrow-right-s-line'></i>",
   ],
+  responsive: {
+    0: {
+      items: 1,
+    },
+    768: {
+      items: 2,
+    },
+    1024: {
+      items: 3,
+    },
+    1200: {
+      items: 4,
+    },
+  },
+});
+
+
+// Services Slides
+$('.dmscore-slides').owlCarousel({
+  loop: true,
+  nav: false,
+  dots: true,
+  smartSpeed: 500,
+  margin: 25,
+  center: true,
+  autoplayHoverPause: true,
+  autoplay: false,
+
+  responsive: {
+    0: {
+      items: 1
+    },
+    768: {
+      items: 2
+    },
+    1024: {
+      items: 3
+    },
+    1200: {
+      items: 3
+    }
+  }
+});
+
+
+// Slides
+$(".dmscase-slides").owlCarousel({
+  loop: true,
+  nav: false,
+  dots: false,
+  smartSpeed: 500,
+  margin: 25,
+  center: true,
+  autoplayHoverPause: true,
+  autoplay: true,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    768: {
+      items: 2,
+    },
+    1024: {
+      items: 3,
+    },
+    1200: {
+      items: 4,
+    },
+  },
+});
+
+// Slides
+$(".dmspartner-slides").owlCarousel({
+  loop: true,
+  nav: false,
+  dots: false,
+  smartSpeed: 500,
+  margin: 25,
+  center: true,
+  autoplayHoverPause: true,
+  autoplay: true,
   responsive: {
     0: {
       items: 1,
